@@ -8,11 +8,18 @@ class App extends Component {
     this.state = {
       theme: "light",
       defaultBackgroundColor: "#F1C40F",
-      backgroundColor: "#F1C40F"
+      backgroundColor: "#F1C40F",
+      hex: "",
+      rgb: "",
     }
   }
 
-  handleKeyPress = (e) => {
+  handleHexOnChange = (e) => {
+    // Render hex component
+    this.setState({
+      hex: e.target.value
+    })
+
     // TODO: Add stubs here to support 8 digit hex
     if(e.target.value.length === 3 || e.target.value.length === 6){
       this.convertHex(e.target.value);
@@ -32,10 +39,13 @@ class App extends Component {
     var g = hex.length === 3 ? parseInt(hex.charAt(1) + hex.charAt(1), 16) : parseInt(hex.substring(2,4), 16);
     var b = hex.length === 3 ? parseInt(hex.charAt(2) + hex.charAt(2), 16) : parseInt(hex.substring(4,6), 16);
 
+    if(isNaN(r) || isNaN(g) || isNaN(b)) return;
+
     // Assign rgb equivalent
     var result = 'rgb('+r+','+g+','+b+')';
- 
+
     this.setState({
+      rgb: result,
       backgroundColor: result
     })
 
@@ -60,9 +70,9 @@ class App extends Component {
   render() {
     return (
       <Main className={this.state.theme} style={{background: this.state.backgroundColor}}>
-        <Hex id="hex" placeholder="hex" autocomplete="off" onKeyUp={this.handleKeyPress}>
+        <Hex id="hex" placeholder="hex" autocomplete="off" onChange={this.handleHexOnChange} value={this.state.hex}>
         </Hex>
-        <RGB id="rgb" placeholder="rgb" autocomplete="off" onKeyUp={this.handleKeyPress}>
+        <RGB id="rgb" placeholder="rgb" autocomplete="off" onKeyUp={this.handleKeyPress} value={this.state.rgb}>
         </RGB>
       </Main>
     );
