@@ -15,15 +15,20 @@ class App extends Component {
   }
 
   convertHex = (hex) =>{
-    hex = hex.replace(/\D/g,'');
+    hex = hex.replace(/#/g,'');
     var r = parseInt(hex.substring(0,2), 16);
     var g = parseInt(hex.substring(2,4), 16);
     var b = parseInt(hex.substring(4,6), 16);
 
     var result = 'rgb('+r+','+g+','+b+')';
+ 
+    this.setState({
+      backgroundColor: result
+    })
   }
   
   componentDidMount(){
+    // TODO: Add stubs here for initial background randomization
     this.setState({
       backgroundColor: "#F2F"
     })
