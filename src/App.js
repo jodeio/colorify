@@ -22,7 +22,7 @@ class App extends Component {
 
     // TODO: Add stubs here to support 8 digit hex
     if(e.target.value.length === 3 || e.target.value.length === 6){
-      this.convertHex(e.target.value);
+      this.convertHexToRgb(e.target.value);
     }else{
       this.setState({
         backgroundColor: this.state.defaultBackgroundColor,
@@ -31,7 +31,14 @@ class App extends Component {
     }
   }
 
-  convertHex = (hex) =>{
+  handleRgbOnChange = (e) => {
+    // Render rgb component
+    this.setState({
+      rgb: e.target.value
+    })
+  }
+
+  convertHexToRgb = (hex) =>{
     hex = hex.replace(/#/g,'');
     
     // TODO: Convert to a reusable method
@@ -50,8 +57,11 @@ class App extends Component {
     })
 
     // Check luminance
-    var lum = (r + g + b) / 3;
+    this.checkLuminance((r + g + b) / 3);
 
+  }
+
+  checkLuminance = (lum) => {
     if(lum < 128){
       this.setState({
         theme: "dark"
@@ -72,7 +82,7 @@ class App extends Component {
       <Main className={this.state.theme} style={{background: this.state.backgroundColor}}>
         <Hex id="hex" placeholder="hex" autocomplete="off" onChange={this.handleHexOnChange} value={this.state.hex}>
         </Hex>
-        <RGB id="rgb" placeholder="rgb" autocomplete="off" onKeyUp={this.handleKeyPress} value={this.state.rgb}>
+        <RGB id="rgb" placeholder="rgb" autocomplete="off" onChange={this.handleRgbOnChange} value={this.state.rgb}>
         </RGB>
       </Main>
     );
