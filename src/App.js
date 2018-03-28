@@ -80,10 +80,14 @@ class App extends Component {
   render() {
     return (
       <Main className={this.state.theme} style={{background: this.state.backgroundColor}}>
-        <Hex id="hex" placeholder="hex" autocomplete="off" onChange={this.handleHexOnChange} value={this.state.hex}>
-        </Hex>
-        <RGB id="rgb" placeholder="rgb" autocomplete="off" onChange={this.handleRgbOnChange} value={this.state.rgb}>
-        </RGB>
+        <Converter>
+          <Hex id="hex" placeholder="hex" autocomplete="off" onChange={this.handleHexOnChange} value={this.state.hex}>
+          </Hex>
+          <Label> Ex. #f1c40f or f1c40f </Label>
+          <RGB id="rgb" placeholder="rgb" autocomplete="off" onChange={this.handleRgbOnChange} value={this.state.rgb}>
+          </RGB>
+          <Label> Ex. rgb(241,196,15) </Label>
+        </Converter>
       </Main>
     );
   }
@@ -95,6 +99,14 @@ const Main = styled.div`
   width: 100%;
   top: 0;
   left: 0;
+  text-align:center;
+`
+
+const Converter = styled.div`
+  position: relative;
+  width: 280px;
+  margin: 0 auto;
+  top: 30%;
 `
 
 const Hex = styled.input`
@@ -103,6 +115,9 @@ const Hex = styled.input`
 
 const RGB = styled.input`
 
+`
+
+const Label = styled.small`
 `
 
 export default App;

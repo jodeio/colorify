@@ -11,31 +11,25 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 html,
 body {
   height: 100%;
 }
-
 body,
 input {
   font-family: 'Raleway', sans-serif;
   background: #ffd454;
 }
-
 a {
   text-decoration: none;
   color: #222;
 }
-
 a:hover {
   color: #111;
 }
-
 a:focus {
   outline: none;
 }
-
 input {
   display: block;
   width: 335px;
@@ -47,13 +41,11 @@ input {
   padding: 5px 0;
   border-radius: 0;
 }
-
 input:focus {
   border-bottom-color: #000;
   outline: none;
 }
-
-#hex {
+small {
   margin-bottom: 15px;
 }
 
@@ -64,6 +56,9 @@ input:focus {
 .light input {
   color: #222!important;
   border-bottom-color: rgba(0, 0, 0, 0.4);
+}
+.light small {
+  color: #222!important;
 }
 .light input:focus {
   border-bottom-color: #000;
@@ -77,6 +72,9 @@ input:focus {
 .dark input {
   color: #fff!important;
   border-bottom-color: rgba(255, 255, 255, 0.4);
+}
+.dark small {
+  color: #fff!important;
 }
 .dark input:focus {
   border-bottom-color: #fff;
