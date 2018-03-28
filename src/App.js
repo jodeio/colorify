@@ -113,6 +113,9 @@ class App extends Component {
           </RGB>
           <Label> Ex. rgb(241,196,15) or 241,196,15 </Label>
         </Converter>
+        <Footer>
+          <Credits> Made with ❤ by <Portfolio href="www.devjdg.com">jodeio</Portfolio></Credits>
+        </Footer>
       </Main>
     );
   }
@@ -143,6 +146,22 @@ const RGB = styled.input`
 `
 
 const Label = styled.small`
+`
+
+const Footer = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+`
+
+const Credits = styled.h3`
+
+`
+
+const Portfolio = styled.a`
+  text-decoration: none;
 `
 
 export default App;

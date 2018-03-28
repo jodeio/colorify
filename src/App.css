@@ -57,7 +57,7 @@ small {
   color: #222!important;
   border-bottom-color: rgba(0, 0, 0, 0.4);
 }
-.light small {
+.light small, .light h3, .light a {
   color: #222!important;
 }
 .light input:focus {
@@ -73,7 +73,7 @@ small {
   color: #fff!important;
   border-bottom-color: rgba(255, 255, 255, 0.4);
 }
-.dark small {
+.dark small, .dark h3, .dark a {
   color: #fff!important;
 }
 .dark input:focus {
