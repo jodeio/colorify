@@ -21,7 +21,7 @@ class App extends Component {
     })
 
     // TODO: Add stubs here to support 8 digit hex
-    if(e.target.value.length === 3 || e.target.value.length === 6){
+    if(e.target.value.length <= 6){
       this.convertHexToRgb(e.target.value);
     }else{
       this.setState({
