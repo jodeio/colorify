@@ -6,9 +6,9 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      theme: "light",
-      defaultBackgroundColor: "#F1C40F",
-      backgroundColor: "#F1C40F",
+      theme: "dark",
+      defaultBackgroundColor: "#1abc9c",
+      backgroundColor: "#1abc9c",
       hex: "",
       rgb: "",
     }
@@ -26,7 +26,7 @@ class App extends Component {
     }else{
       this.setState({
         backgroundColor: this.state.defaultBackgroundColor,
-        theme: "light"
+        theme: "dark"
       })
     }
   }
@@ -40,7 +40,7 @@ class App extends Component {
     if(!this.convertRgbToHex(e.target.value)){
       this.setState({
         backgroundColor: this.state.defaultBackgroundColor,
-        theme: "light"
+        theme: "dark"
       })
     }
   }
