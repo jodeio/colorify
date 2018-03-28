@@ -175,7 +175,7 @@ const Credits = styled.h3`
 `
 
 const Link = styled.a`
-  text-decoration: none;
+  text-decoration: underline wavy;
 `
 
 export default App;
