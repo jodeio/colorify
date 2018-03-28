@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import './App.css';
+import FacebookProvider, { Like, ShareButton } from 'react-facebook';
+
 var FontAwesome = require('react-fontawesome');
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
+      url: "http://colorify.devjdg.com",
       theme: "dark",
       defaultBackgroundColor: "#1abc9c",
       backgroundColor: "#1abc9c",
@@ -115,7 +118,13 @@ class App extends Component {
           <Label> Ex. rgb(241,196,15) or 241,196,15 </Label>
         </Converter>
         <Footer>
-          <Credits> Made with ❤ by <Link href="www.devjdg.com" target="_blank">jodeio</Link> | Fork on <Link href="https://github.com/jodeio/colorify"><FontAwesome name='github'/></Link></Credits>
+          <Credits> 
+              Made with ❤ by <Link href="www.devjdg.com" target="_blank">jodeio </Link> 
+              | Fork on <Link href="https://github.com/jodeio/colorify"><FontAwesome name='github'/> </Link>
+          </Credits>
+          <FacebookProvider appId="198261724238131">
+            <Like href={this.state.url} colorScheme={this.state.theme} showFaces share />
+          </FacebookProvider>
         </Footer>
       </Main>
     );
@@ -154,11 +163,14 @@ const Footer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 70px;
+  text-align: left;
+  padding-left: 20px;
 `
 
 const Credits = styled.h3`
-
+  text-align: center;
+  padding-bottom: 20px;
 `
 
 const Link = styled.a`

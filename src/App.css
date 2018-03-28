@@ -58,7 +58,7 @@ small {
   color: #222!important;
   border-bottom-color: rgba(0, 0, 0, 0.4);
 }
-.light small, .light h3, .light a {
+.light small, .light h3, .light a, .light span {
   color: #222!important;
 }
 .light input:focus {
@@ -74,7 +74,7 @@ small {
   color: #fff!important;
   border-bottom-color: rgba(255, 255, 255, 0.4);
 }
-.dark small, .dark h3, .dark a {
+.dark small, .dark h3, .dark a, .dark span {
   color: #fff!important;
 }
 .dark input:focus {
@@ -115,6 +115,10 @@ small {
   color: #222;
 }
 
+/* Override facebook */
+.td{
+  width: 100% !important;
+}
 /* Optimization */
 @media only screen and (max-width: 400px) {
   input {
