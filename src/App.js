@@ -138,6 +138,7 @@ const Main = styled.div`
   top: 0;
   left: 0;
   text-align:center;
+  padding-bottom: 70px;
 `
 
 const Converter = styled.div`
@@ -159,7 +160,7 @@ const Label = styled.small`
 `
 
 const Footer = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
