@@ -134,7 +134,7 @@ const Converter = styled.div`
   position: relative;
   width: 280px;
   margin: 0 auto;
-  top: 30%;
+  top: 35%;
 `
 
 const Hex = styled.input`
