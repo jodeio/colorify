@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import './App.css';
+var FontAwesome = require('react-fontawesome');
 
 class App extends Component {
   constructor(props){
@@ -114,7 +115,7 @@ class App extends Component {
           <Label> Ex. rgb(241,196,15) or 241,196,15 </Label>
         </Converter>
         <Footer>
-          <Credits> Made with ❤ by <Portfolio href="www.devjdg.com">jodeio</Portfolio></Credits>
+          <Credits> Made with ❤ by <Link href="www.devjdg.com" target="_blank">jodeio</Link> | Fork on <Link href="https://github.com/jodeio/colorify"><FontAwesome name='github'/></Link></Credits>
         </Footer>
       </Main>
     );
@@ -160,7 +161,7 @@ const Credits = styled.h3`
 
 `
 
-const Portfolio = styled.a`
+const Link = styled.a`
   text-decoration: none;
 `
 
