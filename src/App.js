@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      url: "http://colorify.devjdg.com",
+      url: "http://devjdg.com/colorify",
       theme: "dark",
       defaultBackgroundColor: "#1abc9c",
       backgroundColor: "#1abc9c",
