@@ -74,7 +74,7 @@ class App extends Component {
     if(isNaN(parseInt(rgb[0])) || isNaN(parseInt(rgb[1])) || isNaN(parseInt(rgb[2]))) return false;
 
     // Assign the hex equivalent
-    var hex = "#" + parseInt(rgb[0]).toString(16) + parseInt(rgb[1]).toString(16) + parseInt(rgb[2]).toString(16)
+    var hex = "#" + parseInt(rgb[0]).toString(16) + parseInt(rgb[1]).toString(16) + parseInt(rgb[2]).toString(16);
 
     this.setState({
       hex: hex,
