@@ -138,7 +138,7 @@ const Main = styled.div`
   top: 0;
   left: 0;
   text-align:center;
-  padding-bottom: 70px;
+  padding-bottom: 100px;
 `
 
 const Converter = styled.div`
@@ -164,7 +164,7 @@ const Footer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 100px;
   text-align: left;
   padding-left: 20px;
 `
