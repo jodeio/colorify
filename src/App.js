@@ -36,9 +36,16 @@ class App extends Component {
     this.setState({
       rgb: e.target.value
     })
+
+    if(!this.convertRgbToHex(e.target.value)){
+      this.setState({
+        backgroundColor: this.state.defaultBackgroundColor,
+        theme: "light"
+      })
+    }
   }
 
-  convertHexToRgb = (hex) =>{
+  convertHexToRgb = (hex) => {
     hex = hex.replace(/#/g,'');
     
     // TODO: Convert to a reusable method
@@ -49,19 +56,37 @@ class App extends Component {
     if(isNaN(r) || isNaN(g) || isNaN(b)) return;
 
     // Assign rgb equivalent
-    var result = 'rgb('+r+','+g+','+b+')';
+    var rgb = 'rgb('+r+','+g+','+b+')';
 
     this.setState({
-      rgb: result,
-      backgroundColor: result
+      rgb: rgb,
+      backgroundColor: rgb
     })
 
-    // Check luminance
     this.checkLuminance((r + g + b) / 3);
-
   }
 
-  checkLuminance = (lum) => {
+  convertRgbToHex = (rgb) => {
+    rgb = rgb.replace(/[rgb[{()}]/g, '');
+    rgb = rgb.split(',');
+
+    // Validate extracted elements
+    if(isNaN(parseInt(rgb[0])) || isNaN(parseInt(rgb[1])) || isNaN(parseInt(rgb[2]))) return false;
+
+    // Assign the hex equivalent
+    var hex = "#" + parseInt(rgb[0]).toString(16) + parseInt(rgb[1]).toString(16) + parseInt(rgb[2]).toString(16)
+
+    this.setState({
+      hex: hex,
+      backgroundColor: hex
+    })
+
+    this.checkLuminance(parseInt(rgb[0]) + parseInt(rgb[1]) + parseInt(rgb[2]));
+
+    return true;
+  }
+
+  checkLuminance = (lum) => {  
     if(lum < 128){
       this.setState({
         theme: "dark"
