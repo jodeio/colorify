@@ -111,7 +111,7 @@ class App extends Component {
           <Label> Ex. #f1c40f or f1c40f </Label>
           <RGB id="rgb" placeholder="rgb" autocomplete="off" onChange={this.handleRgbOnChange} value={this.state.rgb}>
           </RGB>
-          <Label> Ex. rgb(241,196,15) </Label>
+          <Label> Ex. rgb(241,196,15) or 241,196,15 </Label>
         </Converter>
       </Main>
     );
