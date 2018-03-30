@@ -1,4 +1,4 @@
-Colorify
+## Colorify
 
 A minimalist color conversion tool
 
