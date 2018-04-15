@@ -24,16 +24,14 @@ Node.js' package ecosystem, npm, is the largest ecosystem of open source librari
 $ npm install --save react
 ```
 
-Go to the root folder directory, then install dependencies:
-
-```bash
-$ npm install
-```
 ### Usage
-Then, run the following command:
 
-```bash
-$ npm start
+Run demo project
+
+```
+git clone https://github.com/jodeio/colorify.git
+npm install
+npm start
 ```
 
 ### Deployment
