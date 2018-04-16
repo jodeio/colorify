@@ -9,7 +9,7 @@ Node.js' package ecosystem, npm, is the largest ecosystem of open source librari
 - [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces
 
 ### Demo
-- [Live Demo](https://devjdg.github.io/colorify)
+- [Live Demo](https://jodeio.github.io/colorify)
 
 
 ### Installation
