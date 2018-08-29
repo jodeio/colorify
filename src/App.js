@@ -6,7 +6,7 @@ import FacebookProvider, { Like, ShareButton } from 'react-facebook';
 var FontAwesome = require('react-fontawesome');
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       url: "http://devjdg.com/colorify",
@@ -25,9 +25,9 @@ class App extends Component {
     })
 
     // TODO: Add stubs here to support 8 digit hex
-    if(e.target.value.length <= 6){
+    if (e.target.value.length <= 7) {
       this.convertHexToRgb(e.target.value);
-    }else{
+    } else {
       this.setState({
         backgroundColor: this.state.defaultBackgroundColor,
         theme: "dark"
@@ -41,7 +41,7 @@ class App extends Component {
       rgb: e.target.value
     })
 
-    if(!this.convertRgbToHex(e.target.value)){
+    if (!this.convertRgbToHex(e.target.value)) {
       this.setState({
         backgroundColor: this.state.defaultBackgroundColor,
         theme: "dark"
@@ -50,17 +50,17 @@ class App extends Component {
   }
 
   convertHexToRgb = (hex) => {
-    hex = hex.replace(/#/g,'');
-    
-    // TODO: Convert to a reusable method
-    var r = hex.length === 3 ? parseInt(hex.charAt(0) + hex.charAt(0), 16) : parseInt(hex.substring(0,2), 16);
-    var g = hex.length === 3 ? parseInt(hex.charAt(1) + hex.charAt(1), 16) : parseInt(hex.substring(2,4), 16);
-    var b = hex.length === 3 ? parseInt(hex.charAt(2) + hex.charAt(2), 16) : parseInt(hex.substring(4,6), 16);
+    hex = hex.replace(/#/g, '');
 
-    if(isNaN(r) || isNaN(g) || isNaN(b)) return;
+    // TODO: Convert to a reusable method
+    var r = hex.length === 3 ? parseInt(hex.charAt(0) + hex.charAt(0), 16) : parseInt(hex.substring(0, 2), 16);
+    var g = hex.length === 3 ? parseInt(hex.charAt(1) + hex.charAt(1), 16) : parseInt(hex.substring(2, 4), 16);
+    var b = hex.length === 3 ? parseInt(hex.charAt(2) + hex.charAt(2), 16) : parseInt(hex.substring(4, 6), 16);
+
+    if (isNaN(r) || isNaN(g) || isNaN(b)) return;
 
     // Assign rgb equivalent
-    var rgb = 'rgb('+r+','+g+','+b+')';
+    var rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
 
     this.setState({
       rgb: rgb,
@@ -71,44 +71,47 @@ class App extends Component {
   }
 
   convertRgbToHex = (rgb) => {
-    rgb = rgb.replace(/[rgb[{()}]/g, '');
+    rgb = rgb.replace(/[rgb{a}()]/g, '');
     rgb = rgb.split(',');
 
     // Validate extracted elements
-    if(isNaN(parseInt(rgb[0])) || isNaN(parseInt(rgb[1])) || isNaN(parseInt(rgb[2]))) return false;
+    if (isNaN(parseInt(rgb[0], 10)) || isNaN(parseInt(rgb[1], 10)) || isNaN(parseInt(rgb[2], 10))) return false;
 
     // Assign the hex equivalent
-    var hex = "#" + parseInt(rgb[0]).toString(16) + parseInt(rgb[1]).toString(16) + parseInt(rgb[2]).toString(16);
-
+    var hex = "#" + this.checkHexPrecedence(rgb[0]) + parseInt(rgb[0], 10).toString(16) + this.checkHexPrecedence(rgb[1]) + parseInt(rgb[1], 10).toString(16) + this.checkHexPrecedence(rgb[2]) + parseInt(rgb[2], 10).toString(16);
     this.setState({
       hex: hex,
       backgroundColor: hex
     })
 
-    this.checkLuminance(parseInt(rgb[0]) + parseInt(rgb[1]) + parseInt(rgb[2]));
+    this.checkLuminance(parseInt(rgb[0], 10) + parseInt(rgb[1], 10) + parseInt(rgb[2], 10));
 
     return true;
   }
 
-  checkLuminance = (lum) => {  
-    if(lum < 128){
+  checkLuminance = (lum) => {
+    if (lum < 128) {
       this.setState({
         theme: "dark"
       })
-    }else{
+    } else {
       this.setState({
         theme: "light"
       })
     }
   }
-  
-  componentDidMount(){
+
+  checkHexPrecedence = (val) => {
+    return val <= 15 ? "0" : "";
+  }
+
+  componentDidMount() {
     // TODO: Add stubs here for initial background randomization
   }
-  
+
   render() {
     return (
-      <Main className={this.state.theme} style={{background: this.state.backgroundColor}}>
+      <Main className={this.state.theme} style={{ background: this.state.backgroundColor }}>
         <Converter>
           <Hex id="hex" placeholder="hex" autocomplete="off" onChange={this.handleHexOnChange} value={this.state.hex}>
           </Hex>
@@ -118,9 +121,9 @@ class App extends Component {
           <Label> Ex. rgb(241,196,15) or 241,196,15 </Label>
         </Converter>
         <Footer>
-          <Credits> 
-              Made with ❤ by <Link href="www.devjdg.com" target="_blank">joshuadeguzman </Link> 
-              | Fork on <Link target="_blank" href="https://github.com/joshuadeguzman/colorify"><FontAwesome name='github'/> </Link>
+          <Credits>
+            Made with ❤ by <Link href="https://jmdg.io" target="_blank">joshuadeguzman</Link>
+            | Fork on <Link target="_blank" href="https://github.com/joshuadeguzman/colorify"><FontAwesome name='github' /> </Link>
           </Credits>
           <FacebookProvider appId="198261724238131">
             <Like href={this.state.url} colorScheme={this.state.theme} showFaces share />
