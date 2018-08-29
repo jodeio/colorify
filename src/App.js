@@ -119,8 +119,8 @@ class App extends Component {
         </Converter>
         <Footer>
           <Credits> 
-              Made with ❤ by <Link href="www.devjdg.com" target="_blank">jodeio </Link> 
-              | Fork on <Link href="https://github.com/jodeio/colorify"><FontAwesome name='github'/> </Link>
+              Made with ❤ by <Link href="www.devjdg.com" target="_blank">joshuadeguzman </Link> 
+              | Fork on <Link target="_blank" href="https://github.com/joshuadeguzman/colorify"><FontAwesome name='github'/> </Link>
           </Credits>
           <FacebookProvider appId="198261724238131">
             <Like href={this.state.url} colorScheme={this.state.theme} showFaces share />

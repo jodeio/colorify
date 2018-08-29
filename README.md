@@ -40,21 +40,16 @@ npm start
 $ npm run deploy
 ```
 
-More on:
-[create-react-app deployment](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md)
+#### META
 
-## Contributing
+Joshua de Guzman | code@jmdg.io
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Distributed under the [MIT license](https://github.com/joshuadeguzman/colorify/blob/master/LICENSE).
 
-## Authors
+#### CONTRIBUTING
 
-[Joshua de Guzman](www.devjdg.com)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
+1. Fork it (<https://github.com/joshuadeguzman/ButtonsKt/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
