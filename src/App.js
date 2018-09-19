@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import './App.css';
+import { foregroundColor } from '@emmangarcia/chameleon'
 import FacebookProvider, { Like, ShareButton } from 'react-facebook';
 
 var FontAwesome = require('react-fontawesome');
@@ -13,6 +14,7 @@ class App extends Component {
       theme: "dark",
       defaultBackgroundColor: "#1abc9c",
       backgroundColor: "#1abc9c",
+      inputColor: "hsl(0, 100%, 100%)",
       hex: "",
       rgb: "",
     }
@@ -64,7 +66,8 @@ class App extends Component {
 
     this.setState({
       rgb: rgb,
-      backgroundColor: rgb
+      backgroundColor: rgb,
+      inputColor: foregroundColor(r, g, b),
     })
 
     this.checkLuminance((r + g + b) / 3);
@@ -81,7 +84,8 @@ class App extends Component {
     var hex = "#" + this.checkHexPrecedence(rgb[0]) + parseInt(rgb[0], 10).toString(16) + this.checkHexPrecedence(rgb[1]) + parseInt(rgb[1], 10).toString(16) + this.checkHexPrecedence(rgb[2]) + parseInt(rgb[2], 10).toString(16);
     this.setState({
       hex: hex,
-      backgroundColor: hex
+      backgroundColor: hex,
+      inputColor: foregroundColor(rgb[0], rgb[1], rgb[2]),
     })
 
     this.checkLuminance(parseInt(rgb[0], 10) + parseInt(rgb[1], 10) + parseInt(rgb[2], 10));
@@ -113,11 +117,29 @@ class App extends Component {
     return (
       <Main className={this.state.theme} style={{ background: this.state.backgroundColor }}>
         <Converter>
-          <Hex id="hex" placeholder="hex" autocomplete="off" onChange={this.handleHexOnChange} value={this.state.hex}>
-          </Hex>
+          <Hex 
+            id="hex" 
+            placeholder="hex"
+            autocomplete="off" 
+            onChange={this.handleHexOnChange} 
+            value={this.state.hex}
+            style={{
+              color: this.state.inputColor,
+              borderBottomColor: this.state.inputColor,
+              borderBottomWidth: 1
+            }}/>
           <Label> Ex. #f1c40f or f1c40f </Label>
-          <RGB id="rgb" placeholder="rgb" autocomplete="off" onChange={this.handleRgbOnChange} value={this.state.rgb}>
-          </RGB>
+          <RGB 
+            id="rgb" 
+            placeholder="rgb" 
+            autocomplete="off" 
+            onChange={this.handleRgbOnChange} 
+            value={this.state.rgb}
+            style={{
+              color: this.state.inputColor,
+              borderBottomColor: this.state.inputColor,
+              borderBottomWidth: 1
+            }}/>
           <Label> Ex. rgb(241,196,15) or 241,196,15 </Label>
         </Converter>
         <Footer>

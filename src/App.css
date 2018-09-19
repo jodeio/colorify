@@ -54,10 +54,10 @@ small {
 .light {
   color: #222!important;
 }
-.light input {
+/* .light input {
   color: #222!important;
   border-bottom-color: rgba(0, 0, 0, 0.4);
-}
+} */
 .light small, .light h3, .light a, .light span {
   color: #222!important;
 }
@@ -70,10 +70,10 @@ small {
 .dark .c:hover {
   color: #ccc;
 }
-.dark input {
+/* .dark input {
   color: #fff!important;
   border-bottom-color: rgba(255, 255, 255, 0.4);
-}
+} */
 .dark small, .dark h3, .dark a, .dark span {
   color: #fff!important;
 }
